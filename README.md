@@ -22,7 +22,7 @@ log.txt - contains all the commands that were ran
 ### Commands to use the APP
 
    * `node liri.js concert-this "artist name"`
-   (/Users/shahriarbinelias/gt/sandbox/Section10/HomeWork/liri-node-app/Images)
+   ![image](/Users/shahriarbinelias/gt/sandbox/Section10/HomeWork/liri-node-app/Images)
 
 
    * `node liri.js spotify-this-song "song name"`
@@ -35,6 +35,7 @@ log.txt - contains all the commands that were ran
 ## Link to a deployed version of the app
 
 App homepage: https://shahriar998.github.io/liri-node-app/.
+
 Repository: https://github.com/shahriar998/liri-node-app
 
 ## The technologies used in the app
