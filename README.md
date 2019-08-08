@@ -22,11 +22,13 @@ log.txt - contains all the commands that were ran
 ### Commands to use the APP
 
    * `node liri.js concert-this "artist name"`
-   ![image](./Images/SC1.png)
    ![](./Images/Giphy1.gif)
-
+   ![image](./Images/SC1.png)
 
    * `node liri.js spotify-this-song "song name"`
+
+   ![](./Images/Giphy2.gif)
+   ![image](./Images/SC2.png)
 
    * `node liri.js movie-this "movie name"`
 
