@@ -23,6 +23,7 @@ log.txt - contains all the commands that were ran
 
    * `node liri.js concert-this "artist name"`
    ![image](./Images/SC1.png)
+   ![](./Images/Giphy1.gif)
 
 
    * `node liri.js spotify-this-song "song name"`
