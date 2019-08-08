@@ -3,22 +3,36 @@ require("dotenv").config();
 
 //Variables
 var keys = require("./keys.js");
-//var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
+var moment = require('moment');
+moment().format();
 
 var liriCommand = process.argv[2];
-var liriSecondCommand = process.argv[3];
-console.log(liriCommand);
-switch (liriCommand) {
+var liriInsertedValue = process.argv[3];
 
-    case "spotify":
-        console.log("Do Spotify staff!!!")
-    
-    case "movie":
-        console.log("Do moive staff!!!")
-    case "concerts":
-        console.log("Do concert staff!!!")
-        showConcertInfo(liriSecondCommand);
+gameOn(liriCommand, liriInsertedValue);
+
+function gameOn(liriCommand, liriInsertedValue) {
+    switch (liriCommand) {
+
+        case "spotify-this-song":
+            console.log("Do Spotify staff!!!");
+            showSpotifyStaff(liriInsertedValue);
+            break;
+
+        case "movie-this":
+            console.log("Do moive staff!!!")
+            movieStaff(liriInsertedValue)
+            break;
+        case "concert-this":
+            console.log("Do concert staff!!!")
+            showConcertInfo(liriInsertedValue);
+            break;
+        case "do-what-it-says":
+            console.log("do-what-it-says")
+            break;
+
+    }
 }
 
 
@@ -29,7 +43,15 @@ function showConcertInfo(artist) {
         function (response) {
             //console.log(response.data);
             for (var i = 0; i < response.data.length; i++) {
-                console.log(response.data[i].venue.name);
+                //console.log(response.data[i]);
+                console.log("\n---------------Event Information No: " + i + "---------------");
+                console.log("\nName of the venue: " + response.data[i].venue.name + "\n");
+                console.log("Venue location: " + response.data[i].venue.city + ", " + response.data[i].venue.country + "\n");
+
+                var momentTime = moment(response.data[i].datetime).format('MM/DD/YYYY');
+                console.log("Concert Date: " + momentTime + "\n");
+                console.log("---------------Event Information---------------");
+
             }
         })
         .catch(function (error) {
@@ -55,51 +77,60 @@ function showConcertInfo(artist) {
 
 }
 
- //showConcertInfo("CLAIRO");
+//showConcertInfo("CLAIRO");
 
- function showSpotifyStaff(playlist){
+function showSpotifyStaff(playlist) {
     var Spotify = require('node-spotify-api');
- 
+
     var spotify = new Spotify({
-      id: process.env.SPOTIFY_ID,
-      secret: process.env.SPOTIFY_SECRET
+        id: process.env.SPOTIFY_ID,
+        secret: process.env.SPOTIFY_SECRET
     });
-     
-    spotify.search({ type: 'track', query: playlist }, function(err, data) {
-      if (err) {
-        return console.log('Error occurred: ' + err);
-      }
-     
-    console.log(data.tracks.items[0].name); 
-    //console.log(data.tracks.items[0]);
-    console.log(data.tracks.items[0]).album.artists;
-    // * Artist(s)
 
-    // * The song's name
+    spotify.search({ type: 'track', query: playlist }, function (err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        }
 
-    // * A preview link of the song from Spotify
+        //console.log("This is the first console log " + data.tracks); 
+        //console.log(data.tracks.items[0]);
+        //console.log(data.tracks.items[0])
+        console.log("---------------Spotify Information---------------");
+        console.log("Artist(s): " + data.tracks.items[0].artists[0].name);
+        console.log("The song's name: " + data.tracks.items[0].name);
+        console.log("A preview link of the song from Spotify: " + data.tracks.items[0].href);
+        console.log("The album that the song is from: " + data.tracks.items[0].album.name);
+        console.log("---------------Spotify Information---------------");
+        // * Artist(s)
 
-    // * The album that the song is from
+        // * The song's name
+
+        // * A preview link of the song from Spotify
+
+        // * The album that the song is from
     });
- }
+}
 
- //showSpotifyStaff()
+//showSpotifyStaff()
 
- function movieStaff(movieName){
+function movieStaff(movieName) {
     var queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     axios.get(queryURL).then(
         function (response) {
-            console.log(response.data.Title);
-            console.log(response.data.Released);
-            console.log(response.data.imdbRating);
-            console.log(response.data.Ratings[1].Value);
-            console.log(response.data.Country);
-            console.log(response.data.Language);
-            console.log(response.data.Plot);
-            console.log(response.data.Actors);
-            
-        })
- }
+      
+            console.log("\n---------------Movie Information---------------");
+            console.log("Title of the movie: "+response.data.Title);
+            console.log("Year the movie came out: "+response.data.Released);
+            console.log("IMDB Rating of the movie: "+response.data.imdbRating);
+            console.log("Rotten Tomatoes Rating of the movie: "+response.data.Ratings[1].Value);
+            console.log("Country where the movie was produced: "+response.data.Country);
+            console.log("Language of the movie: "+response.data.Language);
+            console.log("Plot of the movie: "+response.data.Plot);
+            console.log("Actors in the movie: "+response.data.Actors);
+            console.log("---------------Movie Information---------------\n");
 
- //movieStaff("Batman Begins");
- showSpotifyStaff("Eye of the Tiger");
+        })
+}
+
+//movieStaff("Batman Begins");
+//showSpotifyStaff("Senorita");
