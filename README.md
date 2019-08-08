@@ -25,14 +25,26 @@ log.txt - contains all the commands that were ran
    ![](./Images/Giphy1.gif)
    ![image](./Images/SC1.png)
 
-   * `node liri.js spotify-this-song "song name"`
+   * `node liri.js spotify-this-song`
 
    ![](./Images/Giphy2.gif)
    ![image](./Images/SC2.png)
 
+   * `node liri.js spotify-this-song "song name"`
+
+   [](./Images/Giphy3.gif)
+   ![image](./Images/SC3.png)
+
    * `node liri.js movie-this "movie name"`
 
+   [](./Images/Giphy4.gif)
+   ![image](./Images/SC4.png)
+
+
    * `node liri.js do-what-it-says`
+
+   [](./Images/Giphy5.gif)
+   ![image](./Images/SC5.png)
 
 
 ## Link to a deployed version of the app

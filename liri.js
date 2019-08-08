@@ -115,7 +115,7 @@ function movieStaff(movieName) {
     axios.get(queryURL).then(
         function (response) {
 
-            console.log("\n---------------Movie Information---------------");
+            console.log("\n---------------Movie Information---------------"); 
             console.log("Title of the movie: " + response.data.Title);
             console.log("Year the movie came out: " + response.data.Released);
             console.log("IMDB Rating of the movie: " + response.data.imdbRating);
