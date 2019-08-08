@@ -22,40 +22,36 @@ log.txt - contains all the commands that were ran
 ### Commands to use the APP
 
    * `node liri.js concert-this "artist name"`
-   ![](./Images/Giphy1.gif)
+   ![Artist consert info is displayed](./Images/Giphy1.gif)
    ![image](./Images/SC1.png)
 
    * `node liri.js spotify-this-song`
 
-   ![](./Images/Giphy2.gif)
+   ![If there is no song to look for](./Images/Giphy2.gif)
    ![image](./Images/SC2.png)
 
    * `node liri.js spotify-this-song "song name"`
 
-   [](./Images/Giphy3.gif)
+   [Barbie Girl Song search](./Images/Giphy3.gif)
    ![image](./Images/SC3.png)
 
    * `node liri.js movie-this "movie name"`
 
-   [](./Images/Giphy4.gif)
+   [Top Gun Movie search](./Images/Giphy4.gif)
    ![image](./Images/SC4.png)
 
 
    * `node liri.js do-what-it-says`
 
-   [](./Images/Giphy5.gif)
+   [Backstreet boys info](./Images/Giphy5.gif)
    ![image](./Images/SC5.png)
   
    * `node liri.js do-what-t-says`
-    ![image](./Images/SC6.png)
+    ![image](./Images/SC7.png)
 
-    
-    [](./Images/Giphy7.gif)
+   *  `log.txt`
+   ![image](./Images/SC6.png)
 
-    * `node liri.js do-what-` error command provides suggestion
-
-    [](./Images/Giphy6.gif)
-    
 
 
 ## Link to a deployed version of the app
