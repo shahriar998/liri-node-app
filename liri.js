@@ -5,9 +5,11 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var axios = require("axios");
 var moment = require('moment');
+
 moment().format();
 var fs = require("fs");
-
+var Spotify = require('node-spotify-api');
+var spotify = new Spotify(keys.spotify);
 var liriCommand = process.argv[2];
 var liriInsertedValue = process.argv[3];
 
@@ -84,12 +86,9 @@ function showConcertInfo(artist) {
 //showConcertInfo("CLAIRO");
 
 function showSpotifyStaff(playlist) {
-    var Spotify = require('node-spotify-api');
-
-    var spotify = new Spotify({
-        id: process.env.SPOTIFY_ID,
-        secret: process.env.SPOTIFY_SECRET
-    });
+    if (playlist === undefined) {
+        playlist ="the sign Ace of Base";
+    }
 
     spotify.search({ type: 'track', query: playlist }, function (err, data) {
         if (err) {
@@ -105,13 +104,7 @@ function showSpotifyStaff(playlist) {
         console.log("A preview link of the song from Spotify: " + data.tracks.items[0].href);
         console.log("The album that the song is from: " + data.tracks.items[0].album.name);
         console.log("---------------Spotify Information---------------");
-        // * Artist(s)
 
-        // * The song's name
-
-        // * A preview link of the song from Spotify
-
-        // * The album that the song is from
     });
 }
 
@@ -171,7 +164,7 @@ function logRecords() {
     var textInput = process.argv[2];
     var textInputTwo = process.argv[3];
 
-    var record = "node liri.js "+textInput+" "+textInputTwo+", ";
+    var record = "node liri.js " + textInput + " " + textInputTwo + ", ";
 
 
     // Next, we append the text into the "sample.txt" file.

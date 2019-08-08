@@ -1,1 +1,1 @@
-node liri.js do-what-it-says undefined/n
+node liri.js spotify-this-song undefined, node liri.js undefined undefined, 
