@@ -78,6 +78,10 @@ Repository: https://github.com/shahriar998/liri-node-app
 
 My role was both developer and a tester in order do trial and run every step of appliction during the build 
 
+#### Licensing
+
+The code in this project is licensed under Shahriar Bin Elias 
+
 
 
 
