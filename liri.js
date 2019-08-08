@@ -6,6 +6,7 @@ var keys = require("./keys.js");
 var axios = require("axios");
 var moment = require('moment');
 moment().format();
+var fs = require("fs");
 
 var liriCommand = process.argv[2];
 var liriInsertedValue = process.argv[3];
@@ -16,20 +17,21 @@ function gameOn(liriCommand, liriInsertedValue) {
     switch (liriCommand) {
 
         case "spotify-this-song":
-            console.log("Do Spotify staff!!!");
+            //console.log("Do Spotify staff!!!");
             showSpotifyStaff(liriInsertedValue);
             break;
 
         case "movie-this":
-            console.log("Do moive staff!!!")
+            //console.log("Do moive staff!!!")
             movieStaff(liriInsertedValue)
             break;
         case "concert-this":
-            console.log("Do concert staff!!!")
+            //console.log("Do concert staff!!!")
             showConcertInfo(liriInsertedValue);
             break;
         case "do-what-it-says":
-            console.log("do-what-it-says")
+            //console.log("do-what-it-says")
+            noCommand();
             break;
 
     }
@@ -117,19 +119,36 @@ function movieStaff(movieName) {
     var queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     axios.get(queryURL).then(
         function (response) {
-      
+
             console.log("\n---------------Movie Information---------------");
-            console.log("Title of the movie: "+response.data.Title);
-            console.log("Year the movie came out: "+response.data.Released);
-            console.log("IMDB Rating of the movie: "+response.data.imdbRating);
-            console.log("Rotten Tomatoes Rating of the movie: "+response.data.Ratings[1].Value);
-            console.log("Country where the movie was produced: "+response.data.Country);
-            console.log("Language of the movie: "+response.data.Language);
-            console.log("Plot of the movie: "+response.data.Plot);
-            console.log("Actors in the movie: "+response.data.Actors);
+            console.log("Title of the movie: " + response.data.Title);
+            console.log("Year the movie came out: " + response.data.Released);
+            console.log("IMDB Rating of the movie: " + response.data.imdbRating);
+            console.log("Rotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value);
+            console.log("Country where the movie was produced: " + response.data.Country);
+            console.log("Language of the movie: " + response.data.Language);
+            console.log("Plot of the movie: " + response.data.Plot);
+            console.log("Actors in the movie: " + response.data.Actors);
             console.log("---------------Movie Information---------------\n");
 
         })
+}
+function noCommand() {
+    fs.readFile("random.txt", "utf8", function (error, data) {
+
+        // If the code experiences any errors it will log the error to the console.
+        if (error) {
+            return console.log(error);
+        }
+
+        // Then split it by commas (to make it more readable)
+        var dataArr = data.split(",");
+
+        // We will then re-display the content as an array for later use.
+
+        showSpotifyStaff(dataArr[1]);
+
+    });
 }
 
 //movieStaff("Batman Begins");
