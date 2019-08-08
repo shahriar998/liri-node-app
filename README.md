@@ -45,14 +45,15 @@ log.txt - contains all the commands that were ran
 
    [](./Images/Giphy5.gif)
    ![image](./Images/SC5.png)
-
-   * `node liri.js do-what-` error command provides suggestion
-
-    [](./Images/Giphy6.gif)
   
 
    * Commands get recorded in log.txt file
     [](./Images/Giphy7.gif)
+
+    * `node liri.js do-what-` error command provides suggestion
+
+    [](./Images/Giphy6.gif)
+    [](./Images/Giphy8.gif)
 
 
 ## Link to a deployed version of the app
