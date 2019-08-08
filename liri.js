@@ -33,6 +33,8 @@ function gameOn(liriCommand, liriInsertedValue) {
             //console.log("do-what-it-says")
             noCommand();
             break;
+        default:
+            console.log("Invalid Option. Please type any of the following options: \nconcert-this \nspotify-this-song \nmovie-this \ndo-what-it-says")
 
     }
 }
@@ -146,7 +148,21 @@ function noCommand() {
 
         // We will then re-display the content as an array for later use.
 
-        showSpotifyStaff(dataArr[1]);
+
+
+        if (dataArr[0] === "spotify-this-song") {
+            showSpotifyStaff(dataArr[1]);
+        }
+        else if (dataArr[0] === "movie-this") {
+
+            movieStaff(dataArr[1]);
+        }
+        else if (dataArr[0] === "concert-this") {
+            showConcertInfo(dataArr[1]);
+        }
+        else {
+            console.log("Invalid Option. Please type any of the following options: \nconcert-this \nspotify-this-song \nmovie-this \ndo-what-it-says")
+        }
 
     });
 }
