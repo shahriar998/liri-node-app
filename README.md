@@ -47,7 +47,7 @@ log.txt - contains all the commands that were ran
    ![image](./Images/SC5.png)
   
    * `node liri.js do-what-t-says`
-    ![image](./Images/SC7.png)
+    ![image example of a typo error](./Images/SC7.png)
 
    *  `log.txt`
    ![image](./Images/SC6.png)
