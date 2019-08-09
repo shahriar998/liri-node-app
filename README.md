@@ -46,7 +46,7 @@ log.txt - contains all the commands that were ran
    [Backstreet boys info](./Images/Giphy5.gif)
    ![image](./Images/SC5.png)
   
-   * `node liri.js do-what-t-says`
+   * `node liri.js do-what-t-says -- Typo error`
     ![image example of a typo error](./Images/SC7.png)
 
    *  `log.txt`
